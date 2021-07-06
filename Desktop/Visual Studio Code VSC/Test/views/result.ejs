@@ -1,0 +1,26 @@
+<%- include("./partials/header")%>
+<div class="container">
+  <%if(moviesDump.Response==='False'){%>
+  <h1>Movie Not Found!</h1>
+  <%}else{%>
+  <h1>Search Results:</h1>
+  <div class="row">
+    <%moviesDump['Search'].forEach(function(i){%>
+    <div class="card" style="width: 18rem">
+      <img src="<%=i.Poster%>" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title"><%=i.Title%></h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <a href="/result/<%=i["imdbID"]%>" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <%})%>
+  </div>
+
+  <%}%>
+</div>
+
+<%- include("./partials/footer")%>
